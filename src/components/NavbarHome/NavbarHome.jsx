@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 function NavbarHome() {
   return (
     <>
-      <Navbar expand="lg">
+      <Navbar fixed="top" expand="lg">
         <Container id="special-caseNavHome">
           <Navbar.Brand href="#home">
             <div className="navbarBrand1">
@@ -44,25 +44,25 @@ function NavbarHome() {
               <Nav.Link className="link-navbarHome" href="#home">
                 Inicio
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#features">
+              <Nav.Link className="link-navbarHome" href="#services">
                 Serviços
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#pricing">
+              <Nav.Link className="link-navbarHome" href="#howIt">
                 Como funciona?
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#pricing">
-                Beneficios?
+              <Nav.Link className="link-navbarHome" href="#benefits">
+                Benefícios
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#pricing">
+              <Nav.Link className="link-navbarHome" href="#WWA">
                 Quem somos?
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#pricing">
+              <Nav.Link className="link-navbarHome" href="#founders">
                 Time
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#pricing">
+              <Nav.Link className="link-navbarHome">
                 <Link className="btn-navbar-login">Entrar</Link>
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#pricing">
+              <Nav.Link className="link-navbarHome">
                 <Link className="btn-navbar-register">Cadastrar-se</Link>
               </Nav.Link>
             </Nav>

@@ -74,6 +74,13 @@
 
 /* Media Screens */
 
+@media screen and (max-width: 900px) {
+  .btn-navbar-login,
+  .btn-navbar-register {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 990px) {
   .btn-navbar-login {
     margin: 0 !important;
