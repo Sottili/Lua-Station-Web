@@ -1,0 +1,171 @@
+/* FONTES USADAS NESSA PAGE*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&family=Roboto+Mono:wght@700&family=Roboto+Slab&display=swap");
+
+/* CONTAINER HOME */
+
+.container-home {
+  background-image: url("../../assets/images/backgroundHome.png") !important;
+  background-size: auto;
+  background-repeat: repeat-y;
+  background-position: center;
+}
+
+.contentHome {
+  padding-top: 80px;
+}
+
+/* CONTENT TOP*/
+
+.titleHome {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Roboto Mono";
+}
+
+#leftColumnHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  color: #fff;
+}
+
+#leftColumnHome p {
+  width: 70%;
+  padding-top: 20px;
+  padding: 10px 0;
+  letter-spacing: 1px;
+}
+
+.btnHomeTop {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #5a189a;
+  padding: 10px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 400;
+}
+
+.buttonsHome {
+  display: flex;
+  width: 70%;
+  margin-top: 100px;
+}
+
+/* END CONTENT TOP */
+
+/* SERVICES AREA */
+
+.titleServices {
+  text-align: center;
+  padding: 80px 0;
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 300;
+}
+
+.titleServices span {
+  color: #6c63ff;
+}
+
+.rowServices {
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.servicesCards {
+  background-color: #333f51;
+  margin: 20px 20px;
+  width: 315px !important;
+  height: 224px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.servicesCards h3 {
+  font-weight: 300;
+  font-size: 18px;
+  font-family: "Poppins";
+}
+
+.servicesCards img {
+  width: 150px;
+}
+
+/* FINAL SERVICES AREA */
+
+/* LEVELS AREA */
+
+.rowLevels {
+  padding-top: 80px;
+  color: #fff;
+}
+
+.titleLevels {
+  font-size: 32px;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+}
+
+.subTitleLevels {
+  font-size: 18px;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  padding: 20px 0px;
+  color: #7d8597;
+}
+
+.contentLevels {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.levelsHome {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.levelsHome p {
+  margin-left: 20px;
+}
+
+/* MEDIA SCREENS */
+
+@media screen and (max-width: 575px) {
+  .titleHome,
+  #leftColumnHome p,
+  .buttonsHome {
+    width: 85%;
+  }
+  .btnHomeTop {
+    padding: 6px 12px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .colAstronautHome {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1199px) {
+  .btnHomeTop {
+    padding: 5px 13px;
+  }
+  #leftColumnHome p {
+    width: 85%;
+  }
+  .buttonsHome {
+    width: 85%;
+  }
+} ;
