@@ -33,7 +33,7 @@ import designProfissinal from "../../assets/images/designProfissional.svg";
 
 // Levels Area //
 
-import Podium from "../../assets/images/podiumLevels.svg";
+import Podium from "../../assets/images/podiumLevels.png";
 import Meteor from "../../assets/images/meteor.svg";
 import Moon from "../../assets/images/moon.svg";
 import Star from "../../assets/images/star.svg";
