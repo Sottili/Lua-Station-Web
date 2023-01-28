@@ -68,7 +68,11 @@ const Home = () => {
                 <br />
                 WEBSITE
               </h3>
-              <img className="img-fluid" src={renewWebsite} />
+              <img
+                className="img-fluid"
+                alt="RENOVE SEU WEBSITE"
+                src={renewWebsite}
+              />
             </Col>
             <Col className="servicesCards" xxl={3} xs="12">
               <h3>
@@ -76,7 +80,11 @@ const Home = () => {
                 <br />
                 PROFISSIONAL
               </h3>
-              <img className="img-fluid" src={designProfissinal} />
+              <img
+                className="img-fluid"
+                alt="DESIGN PROFISSIONAL"
+                src={designProfissinal}
+              />
             </Col>
             <Col className="servicesCards" xxl={3} xs="12">
               <h3>
@@ -84,7 +92,11 @@ const Home = () => {
                 <br />
                 VIDEO
               </h3>
-              <img className="img-fluid" src={videoEditor} />
+              <img
+                className="img-fluid"
+                alt="EDIÇÃO DE VIDEO"
+                src={videoEditor}
+              />
             </Col>
             <Col className="servicesCards" xxl={3} xs="12">
               <h3>
@@ -92,7 +104,7 @@ const Home = () => {
                 <br />
                 GAME
               </h3>
-              <img className="img-fluid" src={lanceGame} />
+              <img className="img-fluid" alt="LANCE SEU GAME" src={lanceGame} />
             </Col>
             <Col className="servicesCards" xxl={3} xs="12">
               <h3>
@@ -100,7 +112,7 @@ const Home = () => {
                 <br />
                 APP
               </h3>
-              <img className="img-fluid" src={lanceApp} />
+              <img className="img-fluid" alt="LANCE SEU APP" src={lanceApp} />
             </Col>
           </Row>
           <Row className="rowLevels">
