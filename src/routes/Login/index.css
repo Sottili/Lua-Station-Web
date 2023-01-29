@@ -116,6 +116,9 @@
   .rightCol {
     display: none;
   }
+  .containerLogin {
+    height: 89vh !important;
+  }
   .leftCol {
     width: 100% !important;
   }
