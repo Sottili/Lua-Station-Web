@@ -1,0 +1,122 @@
+/* Container */
+
+.containerLogin {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 70px);
+  background: radial-gradient(50% 50% at 50% 50%, #191a55 0%, #0d0c22 100%);
+  position: relative;
+}
+
+/* Back from Home */
+
+.backFromHome {
+  color: #fff;
+  text-decoration: none;
+  position: absolute;
+  top: 5%;
+  left: 2%;
+  font-family: "Poppins";
+}
+
+/* Right Column */
+
+.loginImage {
+  height: calc(100vh - 70px);
+  max-width: 100%;
+}
+
+/* Left Column */
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin-top: 50px;
+  color: #fff;
+  font-family: "Poppins";
+}
+
+.logoLogin {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.leftCol h3 {
+  letter-spacing: 1.2px;
+  font-weight: 300;
+  font-size: 2.2rem;
+}
+
+.leftCol p {
+  font-weight: 500;
+  color: #8896ab;
+}
+
+.leftCol form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.leftCol form > label {
+  text-align: left;
+  width: 100%;
+  font-size: 15px;
+}
+
+.leftCol form > input {
+  width: 100%;
+  border: none;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.recover-password {
+  width: 100%;
+  text-align: right;
+  text-decoration: none;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9d4edd;
+}
+
+.btnLogin {
+  padding: 10px 0;
+  width: 100%;
+  margin: 2px 0;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #5a189a;
+}
+
+.registerCall {
+  font-size: 14px;
+  color: #fff !important;
+  font-weight: 500 !important;
+}
+
+.spanRegisterCall {
+  margin-left: 5px;
+  text-decoration: none;
+  color: #9d4edd;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#emailLogin {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1023px) {
+  .rightCol {
+    display: none;
+  }
+  .leftCol {
+    width: 100% !important;
+  }
+}

@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 function NavbarHome() {
   return (
     <>
-      <Navbar fixed="top" expand="lg">
+      <Navbar className="navbarHome" fixed="top" expand="lg">
         <Container id="special-caseNavHome">
           <Navbar.Brand href="#home">
             <div className="navbarBrand1">
@@ -60,10 +60,14 @@ function NavbarHome() {
                 Time
               </Nav.Link>
               <Nav.Link className="link-navbarHome">
-                <Link className="btn-navbar-login">Entrar</Link>
+                <Link to="/login" className="btn-navbar-login">
+                  Entrar
+                </Link>
               </Nav.Link>
               <Nav.Link className="link-navbarHome">
-                <Link className="btn-navbar-register">Cadastrar-se</Link>
+                <Link to="/register" className="btn-navbar-register">
+                  Cadastrar-se
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

@@ -1,0 +1,32 @@
+/* Custom Navbar and Links*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+/* Navbar */
+
+.navbarLR {
+  background-color: #333f51;
+  position: relative;
+  height: 70px;
+}
+
+/*Navbar Brand*/
+
+.navbarBrand1 {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  left: 0;
+}
+.navbarBrand2 p {
+  margin: 0;
+  margin-top: -11px;
+  padding: 0;
+  color: #fff;
+  font-weight: 300;
+}
+
+.logo-NavbarBrand {
+  width: 60px;
+  margin: 0px !important;
+}

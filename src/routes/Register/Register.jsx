@@ -16,13 +16,13 @@ const Register = () => {
 
   const auth = getAuth();
 
-  const db = getDatabase(firebaseConfig);
-
   const navigate = useNavigate();
+
+  const db = getDatabase(firebaseConfig);
 
   const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password);
-    navigate("/home");
+    navigate("/login");
   };
 
   onAuthStateChanged(auth, (user) => {
