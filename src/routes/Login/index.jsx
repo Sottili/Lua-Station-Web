@@ -20,13 +20,9 @@ import { HiArrowNarrowLeft } from "react-icons/hi";
 // Firebase //
 import {
   getAuth,
-  setPersistence,
-  browserSessionPersistence,
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getDatabase } from "firebase/database";
-import { firebaseConfig } from "../../services/configFirebase";
 
 ////////////////////////////////////FINAL IMPORTS//////////////////////////////
 
