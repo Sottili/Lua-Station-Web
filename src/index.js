@@ -12,6 +12,7 @@ import Register from "./routes/Register/Register";
 import Home from "./routes/Home";
 import LoginPage from "./routes/Login";
 import HomeUsers from "./routes/HomePrivate";
+import PrivateRoute from "./services/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/home",
-        element: <HomeUsers />,
+        element: <PrivateRoute Component={<HomeUsers />} />,
       },
     ],
   },
