@@ -9,7 +9,7 @@ const PrivateRoute = (Component) => {
 
   const navigate = useNavigate();
 
-  return currentUser ? <Component /> : navigate("/login");
+  return currentUser() ? <Component /> : navigate("/login");
 };
 
 export default PrivateRoute;

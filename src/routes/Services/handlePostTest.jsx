@@ -4,7 +4,7 @@ import React, { useState } from "react";
 //Importações do Firebase
 import { getAuth } from "firebase/auth";
 import { ref, getDatabase, push, child, update } from "firebase/database";
-import { firebaseConfig } from "../../services/configFirebase";
+import { firebaseConfig } from "../../Services/configFirebase";
 
 // Component
 

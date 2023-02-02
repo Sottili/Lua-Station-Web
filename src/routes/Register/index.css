@@ -1,0 +1,124 @@
+/* Container Register User*/
+
+.containerRegisterUser,
+.containerRegisterCompany {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins";
+  color: #fff;
+  height: 100vh;
+  background: radial-gradient(50% 50% at 50% 50%, #191a55 0%, #0d0c22 100%);
+}
+
+/* Back from Home */
+
+.back {
+  color: #fff;
+  text-decoration: none;
+  position: absolute;
+  top: 10%;
+  left: 2%;
+  font-family: "Poppins";
+}
+
+/* Form */
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.steps-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+}
+
+.steps-formTitle {
+  font-size: 1.5rem;
+  max-width: 300px;
+  text-align: center;
+}
+
+.steps-formSubTitle {
+  max-width: 300px;
+  text-align: center;
+  color: #8896ab;
+}
+
+.nameInput {
+  padding: 0;
+  margin: 6px 0;
+}
+
+.inputRegister {
+  width: 300px !important;
+  padding: 4px 5px;
+  border: none;
+  border-radius: 6px;
+}
+
+.inputRegister::placeholder {
+  font-size: 14px;
+}
+
+/* Escolha de Grupo */
+
+.fieldsGroups {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 280px;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.titleGroup {
+  color: #444;
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.imageGroupRegister {
+  width: 40px;
+  margin: 0 10px;
+}
+
+/* Buttons */
+
+.btnRegisterPage {
+  width: 100%;
+  margin-top: 20px;
+  padding: 6px 0;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  background-color: #5a189a;
+}
+
+.btnRegisterCompany {
+  width: 300px;
+  margin-top: 20px;
+  padding: 6px 0;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  background-color: #5a189a;
+}
+
+@media (max-width: 1023px) {
+  .containerRegisterUser,
+  .containerRegisterCompany {
+    height: 100vh !important;
+  }
+}
