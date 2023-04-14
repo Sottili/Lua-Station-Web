@@ -41,7 +41,9 @@ const LoginPage = () => {
         console.log(user);
       }
     });
-    return signInWithEmailAndPassword(auth, email, password);
+    return (
+      signInWithEmailAndPassword(auth, email, password) && navigate("/servicos")
+    );
   }
 
   return (

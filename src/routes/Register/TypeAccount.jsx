@@ -1,13 +1,19 @@
+// React //
 import React from "react";
 
-import "./TypeAccount.css";
-
-import { Container } from "react-bootstrap";
-
-import NavbarLR from "../../components/NavbarLR";
-
+// React Router DOM //
 import { Link } from "react-router-dom";
 
+// Css //
+import "./TypeAccount.css";
+
+// Bootstrap //
+import { Container } from "react-bootstrap";
+
+// Components //
+import NavbarLR from "../../components/NavbarLR";
+
+// Icons //
 import { HiArrowNarrowLeft } from "react-icons/hi";
 
 const Register = () => {

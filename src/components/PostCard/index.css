@@ -1,0 +1,67 @@
+.post {
+  display: flex;
+}
+
+.postCard {
+  width: 300px;
+  background-color: #fff;
+  color: #444;
+  margin: 20px 20px;
+  padding: 0px 20px;
+  border-radius: 10px;
+}
+
+.postTitle {
+  padding: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.postImgContent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.postImg {
+  width: 90px;
+}
+
+.btnsCards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnStartProject {
+  padding: 13px 10px;
+  width: 260px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #5a189a;
+  color: #fff;
+  border-radius: 7px;
+}
+
+.btnAboutProject {
+  padding: 8px 10px;
+  margin: 10px 0;
+  width: 260px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #979dac;
+  color: #fff;
+  border-radius: 7px;
+}
+
+.btnAboutProject:hover,
+.btnStartProject:hover {
+  color: #fff;
+}
+
+.priceProject {
+  font-size: 14px;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+}

@@ -1,0 +1,44 @@
+.navbarHomePrivate {
+  background-color: #333f51;
+  position: relative;
+  height: 54px;
+}
+
+.navHomePrivate-custom {
+  width: 100%;
+  justify-content: center;
+}
+
+.link-navbarHomePrivate {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 300;
+  margin: 5px 5px;
+  font-family: "Poppins";
+}
+
+.link-navbarHomePrivateSignOut {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 300;
+  margin: 5px 5px;
+  font-size: 18px;
+  font-family: "Poppins";
+}
+
+.link-navbarHomePrivateSignOut > p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.link-navbarHomePrivate:hover,
+.link-navbarHomePrivateSignOut:hover {
+  color: #fff;
+}
+
+.icons-navbarPrivate {
+  color: #fff !important;
+  font-size: 18px;
+}

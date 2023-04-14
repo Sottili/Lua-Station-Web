@@ -3,33 +3,32 @@ import React, { useState } from "react";
 
 // Components //
 import NavbarLR from "../../../components/NavbarLR";
+import { Alert } from "react-bootstrap";
 
 // Css //
 import "../index.css";
 
 // Router Dom //
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Icons //
 import { HiArrowNarrowLeft } from "react-icons/hi";
+
+// Banco de Dados e Criação de Usuario //
+
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { app } from "../../../services/configFirebase";
+import { getDatabase, set, ref } from "firebase/database";
 
 /////////////////////////////////////FINAL IMPORTS/////////////////////////////
 
 const RegisterCompany = () => {
   const [formValues, setFormValues] = useState({
     name: "",
-    nameSocial: "",
     email: "",
-    date: "",
-    cpf: "",
+    cpf_cnpj: "",
     password: "",
     confirm_password: "",
-    checkBox: {
-      lowMoney: "",
-      lgbt: "",
-      women: "",
-      black: "",
-    },
   });
 
   function handleInputChange(event) {
@@ -41,6 +40,33 @@ const RegisterCompany = () => {
     }));
   }
 
+  // Validando Campos //
+
+  const [msg, setMsg] = useState("");
+
+  // CRIANDO USUARIO //
+
+  const db = getDatabase(app);
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    createUserWithEmailAndPassword(
+      auth,
+      formValues.email,
+      formValues.password
+    ).then(() => {
+      const user = auth.currentUser;
+      set(ref(db, "Users/" + user.uid), {
+        nome: formValues.name,
+        email: formValues.email,
+        cpf_cnpj: formValues.cpf_cnpj,
+        id: user.uid,
+      });
+    });
+    navigate("/login");
+  };
+
   return (
     <>
       <NavbarLR />
@@ -49,7 +75,7 @@ const RegisterCompany = () => {
           <HiArrowNarrowLeft />
           Voltar
         </Link>
-        <form className="steps-form">
+        <div className="steps-form">
           <h4 className="steps-formTitle">SE ESTABELEÇA NA LS</h4>
           <p className="steps-formSubTitle">Venha consco nessa jornada!</p>
           <div className="fields-container">
@@ -71,47 +97,48 @@ const RegisterCompany = () => {
                   name="email"
                   className="inputRegister"
                   onChange={handleInputChange}
-                  value={formValues.nameSocial}
+                  value={formValues.email}
                 />
               </div>
               <div className="field">
                 <p className="nameInput">CNPJ</p>
                 <input
                   type="text"
-                  name="cpnj"
+                  name="cpf_cnpj"
                   className="inputRegister"
                   onChange={handleInputChange}
-                  value={formValues.email}
+                  value={formValues.cpf_cnpj}
                 />
               </div>
               <div className="field">
                 <p className="nameInput">Senha</p>
                 <input
-                  type="text"
-                  name="cpf"
+                  type="password"
+                  name="password"
                   className="inputRegister"
                   onChange={handleInputChange}
-                  value={formValues.cpf}
+                  value={formValues.password}
                 />
               </div>
               <div className="field">
                 <p className="nameInput">Confirme sua senha</p>
                 <input
-                  type="text"
-                  name="cpf"
+                  type="password"
+                  name="confirm_password"
                   className="inputRegister"
                   onChange={handleInputChange}
-                  value={formValues.cpf}
+                  value={formValues.confirm_password}
                 />
               </div>
               <div className="field">
-                <button type="submit" className="btnRegisterCompany">
+                <button onClick={handleSubmit} className="btnRegisterCompany">
                   Cadastrar
                 </button>
               </div>
+              <Alert className="alertRegister">{msg}</Alert>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );

@@ -1,0 +1,18 @@
+.containerCreateService {
+  display: flex;
+  height: calc(100vh - 54px);
+  color: #fff;
+  background: radial-gradient(50% 50% at 50% 50%, #191a55 0%, #0d0c22 100%);
+  justify-content: center;
+  align-items: center;
+}
+
+.alertSuccessService {
+  position: absolute;
+  top: 10%;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  color: #fff;
+  width: 300px;
+}

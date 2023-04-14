@@ -14,26 +14,20 @@ import blackChoice from "../../../assets/images/black.svg";
 import womenSymbol from "../../../assets/images/womensymbol.svg";
 
 // Router Dom //
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Icons //
 import { HiArrowNarrowLeft } from "react-icons/hi";
 
+// Banco de Dados e Criação de Usuario //
+
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { app } from "../../../services/configFirebase";
+import { getDatabase, set, ref } from "firebase/database";
+
 /////////////////////////////////////FINAL IMPORTS/////////////////////////////
 
 const RegisterUser = () => {
-  const steps = [
-    {
-      id: "PERSONAL",
-    },
-    {
-      id: "CLASSE",
-    },
-    {
-      id: "PASSWORD",
-    },
-  ];
-  const [currentStep, setCurrentStep] = useState(0);
   const [formValues, setFormValues] = useState({
     name: "",
     nameSocial: "",
@@ -50,15 +44,7 @@ const RegisterUser = () => {
     },
   });
 
-  function handleNext(i, e) {
-    if (i < 0 || i >= steps.length) return;
-    setCurrentStep((prevState) => prevState + 1);
-  }
-
-  function handlePrev(i, e) {
-    if (i < 0 || i >= steps.length) return;
-    setCurrentStep((prevState) => prevState - 1);
-  }
+  // Função pra setar o target no formulario //
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -69,11 +55,56 @@ const RegisterUser = () => {
     }));
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  // Steps do formulario //
+  const steps = [
+    {
+      id: "PERSONAL",
+    },
+    {
+      id: "CLASSE",
+    },
+    {
+      id: "PASSWORD",
+    },
+  ];
 
-    console.log("Form sent...", formValues);
+  // Função de steps do formulario //
+  const [currentStep, setCurrentStep] = useState(0);
+
+  function handleNext(i, e) {
+    if (i < 0 || i >= steps.length) return;
+    setCurrentStep((prevState) => prevState + 1);
   }
+
+  function handlePrev(i, e) {
+    if (i < 0 || i >= steps.length) return;
+    setCurrentStep((prevState) => prevState - 1);
+  }
+
+  // CRIANDO USUARIO //
+
+  const db = getDatabase(app);
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    createUserWithEmailAndPassword(
+      auth,
+      formValues.email,
+      formValues.password
+    ).then(() => {
+      const user = auth.currentUser;
+      set(ref(db, "Users/" + user.uid), {
+        nome: formValues.name,
+        nomeSocial: formValues.nameSocial,
+        email: formValues.email,
+        cpf: formValues.cpf,
+        date: formValues.date,
+        id: user.uid,
+      });
+    });
+    navigate("/home");
+  };
 
   return (
     <>
@@ -83,7 +114,7 @@ const RegisterUser = () => {
           <HiArrowNarrowLeft />
           Voltar
         </Link>
-        <form className="steps-form" onSubmit={handleSubmit}>
+        <div className="steps-form">
           <h4 className="steps-formTitle">EMBARQUE EM NOSSO FOGUETE</h4>
           <p className="steps-formSubTitle">Venha consco nessa jornada!</p>
           <div className="fields-container">
@@ -123,7 +154,7 @@ const RegisterUser = () => {
                   <p className="nameInput">Data de Nascimento</p>
                   <input
                     type="date"
-                    name="email"
+                    name="date"
                     className="inputRegister"
                     onChange={handleInputChange}
                     value={formValues.date}
@@ -254,7 +285,7 @@ const RegisterUser = () => {
             )}
             {currentStep === steps.length - 1 && (
               <div>
-                <button className="btnRegisterPage" type="submit">
+                <button className="btnRegisterPage" onClick={handleSubmit}>
                   Finalizar
                 </button>
               </div>
@@ -273,7 +304,7 @@ const RegisterUser = () => {
               </>
             )}
           </div>
-        </form>
+        </div>
       </div>
     </>
   );

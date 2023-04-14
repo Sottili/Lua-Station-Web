@@ -1,15 +1,23 @@
-import { React } from "react";
+import { useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-import { AuthContext } from "./AuthContext";
-import { useContext } from "react";
+function PrivateRoute({ element: Element }) {
+  const [currentUser, setCurrentUser] = useState(null);
 
-const PrivateRoute = (Component) => {
-  const currentUser = useContext(AuthContext);
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    } else {
+      navigate("/login");
+    }
+  });
 
   const navigate = useNavigate();
 
-  return currentUser() ? <Component /> : navigate("/login");
-};
+  return currentUser != null ? Element : navigate("/login");
+}
 
 export default PrivateRoute;

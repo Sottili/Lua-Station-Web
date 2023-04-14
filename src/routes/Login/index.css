@@ -3,7 +3,8 @@
 .containerLogin {
   display: flex;
   justify-content: space-between;
-  height: calc(100vh - 70px);
+  height: 100vh;
+  padding-top: 65px;
   background: radial-gradient(50% 50% at 50% 50%, #191a55 0%, #0d0c22 100%);
   position: relative;
 }
