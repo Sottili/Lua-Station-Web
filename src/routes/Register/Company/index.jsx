@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 // Components //
 import NavbarLR from "../../../components/NavbarLR";
-import { Alert } from "react-bootstrap";
 
 // Css //
 import "../index.css";
@@ -40,10 +39,6 @@ const RegisterCompany = () => {
     }));
   }
 
-  // Validando Campos //
-
-  const [msg, setMsg] = useState("");
-
   // CRIANDO USUARIO //
 
   const db = getDatabase(app);
@@ -60,6 +55,8 @@ const RegisterCompany = () => {
       set(ref(db, "Users/" + user.uid), {
         nome: formValues.name,
         email: formValues.email,
+        imgUser:
+          "https://firebasestorage.googleapis.com/v0/b/lua-stationnew.appspot.com/o/AstronautNavbarIcon.png?alt=media&token=4dbb2ae0-3d07-4852-ac15-2284453fcab0",
         cpf_cnpj: formValues.cpf_cnpj,
         id: user.uid,
       });
@@ -135,7 +132,6 @@ const RegisterCompany = () => {
                   Cadastrar
                 </button>
               </div>
-              <Alert className="alertRegister">{msg}</Alert>
             </div>
           </div>
         </div>

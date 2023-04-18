@@ -11,8 +11,14 @@
   border-radius: 10px;
 }
 
+.postTitleContent {
+  display: flex;
+  justify-content: center;
+}
+
 .postTitle {
   padding: 20px;
+  max-width: 180px;
   font-size: 1.4rem;
   text-align: center;
 }

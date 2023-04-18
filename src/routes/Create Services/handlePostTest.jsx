@@ -42,6 +42,8 @@ const ServicesTest = () => {
 
   const [formValues, setFormValues] = useState({
     nameProject: "",
+    nameAuthor: "",
+    emailAuthor: "",
     descCompany: "",
     descProject: "",
     price: "",
@@ -68,6 +70,8 @@ const ServicesTest = () => {
       {
         idProject: newPostKey,
         nameProject: formValues.nameProject,
+        emailAuthor: formValues.emailAuthor,
+        nameAuthor: formValues.nameAuthor,
         descCompany: formValues.descCompany,
         descProject: formValues.descProject,
         price: formValues.price,
@@ -79,6 +83,8 @@ const ServicesTest = () => {
     set(ref(db, "Services/" + newPostKey), {
       idProject: newPostKey,
       author: auth.currentUser.uid,
+      emailAuthor: formValues.emailAuthor,
+      nameAuthor: formValues.nameAuthor,
       nameProject: formValues.nameProject,
       descCompany: formValues.descCompany,
       descProject: formValues.descProject,
@@ -145,21 +151,42 @@ const ServicesTest = () => {
               {steps[currentStep].id === "PROJECT" && (
                 <div className="fields">
                   <h4 className="steps-formTitle" style={{ margin: "20px" }}>
-                    Crie seu Projeto
+                    Crie seu Projeto:
                   </h4>
                   <div className="field">
                     <p className="nameInput">Nome do projeto</p>
                     <input
                       type="text"
                       name="nameProject"
-                      placeholder="Ex: App de Padaria"
+                      placeholder="Ex: App de Padaria (max 22 caracteres)"
                       className="inputRegister"
                       onChange={handleInputChange}
+                      maxLength="22"
                       value={formValues.nameProject}
                     />
                   </div>
                   <div className="field">
-                    <p className="nameInput">Descrição da empresa</p>
+                    <p className="nameInput">Seu Nome:</p>
+                    <input
+                      type="text"
+                      name="nameAuthor"
+                      className="inputRegister"
+                      onChange={handleInputChange}
+                      value={formValues.nameAuthor}
+                    />
+                  </div>
+                  <div className="field">
+                    <p className="nameInput">Email para contato:</p>
+                    <input
+                      type="text"
+                      name="emailAuthor"
+                      className="inputRegister"
+                      onChange={handleInputChange}
+                      value={formValues.emailAuthor}
+                    />
+                  </div>
+                  <div className="field">
+                    <p className="nameInput">Descrição da empresa:</p>
                     <textarea
                       type="text"
                       name="descCompany"
@@ -205,6 +232,8 @@ const ServicesTest = () => {
                     <textarea
                       type="text"
                       name="descProject"
+                      placeholder="Maximo de 245 caracteres"
+                      maxLength="245"
                       rows="6"
                       className="inputRegister"
                       onChange={handleInputChange}

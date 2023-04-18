@@ -1,7 +1,7 @@
 ////////////////////////////////////////IMPORTS////////////////////////////////
 
 // Firebase //
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 //Css
 import "../../global.css";
@@ -16,6 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //Imagens//
 
 import logo from "../../assets/images/logo.svg";
+import perfilImg from "../../assets/images/AstronautNavbarIcon.png";
 
 //React Router Dom
 
@@ -25,6 +26,7 @@ import { Link } from "react-router-dom";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { AiOutlineHeart, AiOutlineBell } from "react-icons/ai";
 import { BsBoxArrowInRight } from "react-icons/bs";
+import { useEffect, useState } from "react";
 
 ///////////////////////////////////////FINAL IMPORTS //////////////////////////
 
@@ -35,6 +37,15 @@ function NavbarPrivate() {
   const handleSignOut = () => {
     signOut(auth);
   };
+
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      const id = user.uid;
+      setUserId(id);
+    });
+  }, [auth, setUserId]);
 
   return (
     <>
@@ -61,12 +72,12 @@ function NavbarPrivate() {
                   Freelancers
                 </Link>
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#services">
+              <Nav.Link className="link-navbarHome">
                 <Link className="link-navbarHomePrivate" to="/servicos">
                   Serviços
                 </Link>
               </Nav.Link>
-              <Nav.Link className="link-navbarHome" href="#howIt">
+              <Nav.Link className="link-navbarHome">
                 <Link className="link-navbarHomePrivate" to="/meus-freelas">
                   Meus Freelas
                 </Link>
@@ -75,17 +86,33 @@ function NavbarPrivate() {
             <Nav className="navHomePrivate-custom2">
               <Nav.Link>
                 <Link className="link-navbarHomePrivate" to="/criar-servico">
-                  <MdOutlineLibraryAdd className="icons-navbarPrivate" />
+                  <MdOutlineLibraryAdd className="icons-navbarPrivate" />{" "}
+                  <p className="mobileTextNav">Adicione um Projeto</p>
                 </Link>
               </Nav.Link>
               <Nav.Link>
                 <Link className="link-navbarHomePrivate" to="/favoritos">
-                  <AiOutlineHeart className="icons-navbarPrivate" />
+                  <AiOutlineHeart className="icons-navbarPrivate" />{" "}
+                  <p className="mobileTextNav">Favoritos</p>
                 </Link>
               </Nav.Link>
               <Nav.Link>
                 <Link className="link-navbarHomePrivate" to="/notificacoes">
-                  <AiOutlineBell className="icons-navbarPrivate" />
+                  <AiOutlineBell className="icons-navbarPrivate" />{" "}
+                  <p className="mobileTextNav">Notificações</p>
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="link-navbarHomePrivate"
+                  to={`/perfil/${userId}`}
+                >
+                  <img
+                    src={perfilImg}
+                    alt="Foto do usuario"
+                    style={{ width: "38px" }}
+                  />
+                  <p className="mobileTextNav">Perfil</p>
                 </Link>
               </Nav.Link>
               <Nav.Link>
@@ -93,8 +120,10 @@ function NavbarPrivate() {
                   className="link-navbarHomePrivateSignOut"
                   onClick={handleSignOut}
                 >
-                  <BsBoxArrowInRight className="icons-navbarPrivate" />
-                  <p>Sair</p>
+                  <BsBoxArrowInRight
+                    style={{ marginTop: "6px", fontSize: "18px" }}
+                  />
+                  <p style={{ marginTop: "6px", marginLeft: "5px" }}>Sair</p>
                 </Link>
               </Nav.Link>
             </Nav>

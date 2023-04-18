@@ -97,6 +97,8 @@ const RegisterUser = () => {
       set(ref(db, "Users/" + user.uid), {
         nome: formValues.name,
         nomeSocial: formValues.nameSocial,
+        imgUser:
+          "https://firebasestorage.googleapis.com/v0/b/lua-stationnew.appspot.com/o/AstronautNavbarIcon.png?alt=media&token=4dbb2ae0-3d07-4852-ac15-2284453fcab0",
         email: formValues.email,
         cpf: formValues.cpf,
         date: formValues.date,

@@ -1,0 +1,9 @@
+.containerPosts {
+  background: radial-gradient(50% 50% at 50% 50%, #191a55 0%, #0d0c22 100%);
+  padding-top: 80px;
+  color: #fff;
+  width: 100%;
+  min-height: calc(100vh - 54px);
+  display: flex;
+  justify-content: center;
+}

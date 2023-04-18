@@ -1,0 +1,99 @@
+.postDetailsContainer {
+  height: calc(100vh - 54px);
+  background: radial-gradient(50% 50% at 50% 50%, #191a55 0%, #0d0c22 100%);
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins";
+  position: relative;
+}
+
+.cardPost {
+  width: 450px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+
+.descProjectDetails {
+  font-size: 14px;
+  text-transform: lowercase;
+  max-width: 300px !important;
+}
+
+.btnSolicitar {
+  width: 200px;
+  background-color: #5a189a;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  margin: 10px 0 10px 0;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.infosAuthor {
+  position: absolute;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  right: 8%;
+  top: 9%;
+  display: flex;
+}
+
+.infosProject {
+  position: absolute;
+  background-color: #fff;
+  padding: 0px 20px;
+  border-radius: 10px;
+  width: 330px;
+  left: 5%;
+  top: 9%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nameProject {
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.nameAuthor,
+.emailAuthor {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.nameAuthor {
+  margin-top: 12px;
+}
+
+@media (max-width: 575px) {
+  .cardPost {
+    width: 300px !important;
+    height: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1180px) {
+  .infosAuthor,
+  .infosProject {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1254px) {
+  .infosProject {
+    left: 2%;
+  }
+  .infosAuthor {
+    right: 4%;
+  }
+}

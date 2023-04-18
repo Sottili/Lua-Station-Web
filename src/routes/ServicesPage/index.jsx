@@ -8,17 +8,17 @@ import "./index.css";
 import NavbarPrivate from "../../components/NavbarPrivate";
 
 // Services //
-import PostList from "../../services/loadPost";
+import PostList from "../../services/loadPosts";
 
-const HomeUsers = () => {
+const ServicesPage = () => {
   return (
     <div className="posts">
       <NavbarPrivate />
-      <div className="container-posts">
+      <div className="containerPosts">
         <PostList />
       </div>
     </div>
   );
 };
 
-export default HomeUsers;
+export default ServicesPage;

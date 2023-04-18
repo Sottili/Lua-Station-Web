@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 // Pages //
+
 import ErrorPage from "./routes/ErrorPage";
 import TypeAccount from "./routes/Register/TypeAccount";
 import Home from "./routes/Home";
@@ -11,8 +12,9 @@ import LoginPage from "./routes/Login";
 import RegisterUser from "./routes/Register/User";
 import RegisterCompany from "./routes/Register/Company";
 import ServicesTest from "./routes/Create Services/handlePostTest";
-import HomeUsers from "./routes/HomeUsers";
+import ServicesPage from "./routes/ServicesPage";
 import PostDetails from "./routes/PostDetails";
+import PerfilUser from "./routes/PerfilUser";
 
 // Rota Privada //
 
@@ -26,7 +28,9 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import Freelancers from "./routes/Freelancers";
 
+// Router //
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -40,8 +44,10 @@ const router = createBrowserRouter(
         path="/criar-servico"
         element={<PrivateRoute element={<ServicesTest />} />}
       />
-      <Route path="/servicos" element={<HomeUsers />} />
+      <Route path="/servicos" element={<ServicesPage />} />
       <Route path="/servicos/:key" element={<PostDetails />} />
+      <Route path="/perfil/:userId" element={<PerfilUser />} />
+      <Route path="/freelancers" element={<Freelancers />} />
     </>
   )
 );

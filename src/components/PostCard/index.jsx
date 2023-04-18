@@ -11,7 +11,9 @@ export const PostCard = ({ title, id, body, platform, deadline, price }) => (
   <>
     <div className="post">
       <div className="postCard">
-        <h4 className="postTitle">{title}</h4>
+        <div className="postTitleContent">
+          <h4 className="postTitle">{title}</h4>
+        </div>
         <div className="postImgContent">
           <img className="postImg" src={deadline} alt="Deadline" />
         </div>
@@ -26,7 +28,19 @@ export const PostCard = ({ title, id, body, platform, deadline, price }) => (
           >
             Descrição:
           </h6>
-          <p style={{ fontSize: "14px", fontWeight: "500" }}>{body}</p>
+          <p
+            style={{
+              fontSize: "14px",
+              fontWeight: "500",
+              width: "200px",
+              textTransform: "lowercase",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+            }}
+          >
+            {body}
+          </p>
           <p className="priceProject">
             <AiFillDollarCircle
               style={{

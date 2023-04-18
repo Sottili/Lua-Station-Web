@@ -1,0 +1,54 @@
+.cardUser {
+  background-color: #fff;
+  width: 280px;
+  height: 175px;
+  color: #444;
+  padding: 20px 20px;
+  border-radius: 10px;
+  margin: 20px 10px;
+  position: relative;
+}
+
+.favoriteIcon {
+  position: absolute;
+  top: 1%;
+  right: 5%;
+  width: 20px;
+  height: 20px;
+  color: #666666;
+  border: none;
+  transition: 1s;
+}
+
+.heartActive {
+  transition: 0.7s;
+  color: #7b2cbf;
+}
+
+.cardUserBody {
+  display: flex;
+}
+
+.nomeUserCard {
+  font-size: 2rem;
+  margin: 10px 10px;
+}
+
+.imgUserCard {
+  width: 80px;
+}
+
+.btnUserCard {
+  width: 240px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  margin-top: 10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: #5a189a;
+}
+
+.btnUserCard:hover {
+  color: #fff;
+}
