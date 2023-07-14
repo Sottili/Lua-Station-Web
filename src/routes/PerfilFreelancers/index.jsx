@@ -20,9 +20,9 @@ import star from "../../assets/images/star.svg";
 import moon from "../../assets/images/moon.svg";
 import meteor from "../../assets/images/meteor.svg";
 
-const PerfilUser = () => {
+const PerfilFreelancer = () => {
   // Constante que vai passar os valores para a rota pelo useParams //
-  const { userId } = useParams();
+  const { freelancerId } = useParams();
 
   // State que vai armazenar as informações do Usuario //
   const [user, setUser] = useState({});
@@ -42,10 +42,10 @@ const PerfilUser = () => {
       for (let id in users) {
         usersList.push({ id, ...users[id] });
       }
-      const userCurrent = usersList.find((item) => item.id === userId);
+      const userCurrent = usersList.find((item) => item.id === freelancerId);
       setUser(userCurrent);
     });
-  }, [userId, setUser]);
+  }, [freelancerId, setUser]);
 
   // Função para voltar uma pagina se não for o usaurio atual //
   const navigate = useNavigate();
@@ -141,7 +141,6 @@ const PerfilUser = () => {
                   <p className="infoDescUser">{user.email}</p>
                   <h5 className="labelDescUser">CPF/CNPJ</h5>
                   <p className="infoDescUser">{user.cpf}</p>
-                  <Link className="btnInsideDescUser">Mudar informações</Link>
                 </div>
               </div>
             </Col>
@@ -176,4 +175,4 @@ const PerfilUser = () => {
   }
 };
 
-export default PerfilUser;
+export default PerfilFreelancer;

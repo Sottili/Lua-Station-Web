@@ -81,8 +81,12 @@ const Home = () => {
                 <br />A Lua Station te leva até lá!
               </p>
               <div className="buttonsHome">
-                <Link className="btnHomeTop">Publique seu Projeto</Link>
-                <Link className="btnHomeTop">Seja um astronauta</Link>
+                <Link to="/register" className="btnHomeTop">
+                  Publique seu Projeto
+                </Link>
+                <Link to="/register" className="btnHomeTop">
+                  Seja um astronauta
+                </Link>
                 <Link className="btnSpecial">Baixe nosso App!</Link>
               </div>
             </Col>

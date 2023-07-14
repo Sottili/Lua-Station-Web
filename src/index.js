@@ -4,21 +4,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 // Pages //
-
 import ErrorPage from "./routes/ErrorPage";
 import TypeAccount from "./routes/Register/TypeAccount";
 import Home from "./routes/Home";
 import LoginPage from "./routes/Login";
 import RegisterUser from "./routes/Register/User";
 import RegisterCompany from "./routes/Register/Company";
-import ServicesTest from "./routes/Create Services/handlePostTest";
+
+// Pages Privadas //
+import CreateServices from "./routes/Create Services";
 import ServicesPage from "./routes/ServicesPage";
 import PostDetails from "./routes/PostDetails";
 import PerfilUser from "./routes/PerfilUser";
-
-// Rota Privada //
-
-import PrivateRoute from "./services/PrivateRoute";
+import Freelancers from "./routes/Freelancers";
+import PerfilFreelancer from "./routes/PerfilFreelancers";
+import FavoritesUser from "./routes/Favorites";
 
 // React router DOM //
 
@@ -28,7 +28,9 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Freelancers from "./routes/Freelancers";
+
+import PrivateRoute from "./services/PrivateRoute";
+import { AuthProvider } from "./services/authContext";
 
 // Router //
 const router = createBrowserRouter(
@@ -42,12 +44,29 @@ const router = createBrowserRouter(
       <Route path="*" element={<ErrorPage />} />
       <Route
         path="/criar-servico"
-        element={<PrivateRoute element={<ServicesTest />} />}
+        element={<PrivateRoute element={<CreateServices />} />}
       />
-      <Route path="/servicos" element={<ServicesPage />} />
-      <Route path="/servicos/:key" element={<PostDetails />} />
-      <Route path="/perfil/:userId" element={<PerfilUser />} />
-      <Route path="/freelancers" element={<Freelancers />} />
+      <Route
+        path="/servicos"
+        element={<PrivateRoute element={<ServicesPage />} />}
+      />
+      <Route
+        path="/servicos/:key"
+        element={<PrivateRoute element={<PostDetails />} />}
+      />
+      <Route
+        path="/meu-perfil/:userId"
+        element={<PrivateRoute element={<PerfilUser />} />}
+      />
+      <Route
+        path="/freelancers"
+        element={<PrivateRoute element={<Freelancers />} />}
+      />
+      <Route
+        path="/perfil-freelancer/:freelancerId"
+        element={<PrivateRoute element={<PerfilFreelancer />} />}
+      />
+      <Route path="/favoritos/userId" element={<FavoritesUser />} />
     </>
   )
 );
@@ -55,6 +74,8 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

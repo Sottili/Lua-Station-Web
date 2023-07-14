@@ -91,7 +91,10 @@ function NavbarPrivate() {
                 </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className="link-navbarHomePrivate" to="/favoritos">
+                <Link
+                  className="link-navbarHomePrivate"
+                  to={`/favoritos/${userId}`}
+                >
                   <AiOutlineHeart className="icons-navbarPrivate" />{" "}
                   <p className="mobileTextNav">Favoritos</p>
                 </Link>
@@ -105,7 +108,7 @@ function NavbarPrivate() {
               <Nav.Link>
                 <Link
                   className="link-navbarHomePrivate"
-                  to={`/perfil/${userId}`}
+                  to={`/meu-perfil/${userId}`}
                 >
                   <img
                     src={perfilImg}

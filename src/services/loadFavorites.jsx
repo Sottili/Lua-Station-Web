@@ -5,21 +5,23 @@ import UserCard from "../components/UserCard";
 // Firebase //
 import { getDatabase, onValue, ref } from "firebase/database";
 import { app } from "./configFirebase";
+import { getAuth } from "firebase/auth";
 
-export default function UserList() {
-  const [userList, setUserList] = useState();
+export default function FavoritesList() {
+  const [favoritesList, setfFavoritesList] = useState();
 
   useEffect(() => {
     const db = getDatabase(app);
+    const auth = getAuth();
 
-    const usersRef = ref(db, "Users");
-    onValue(usersRef, (snapshot) => {
-      const users = snapshot.val();
-      const userList = [];
-      for (let id in users) {
-        userList.push({ id, ...users[id] });
+    const favoriteRef = ref(db, `Favorites/${auth.currentUser.uid}`);
+    onValue(favoriteRef, (snapshot) => {
+      const favorites = snapshot.val();
+      const favoritesList = [];
+      for (let id in favorites) {
+        favoritesList.push({ id, ...favorites[id] });
       }
-      setUserList(userList);
+      setfFavoritesList(favoritesList);
     });
   }, []);
 
@@ -27,8 +29,8 @@ export default function UserList() {
     <div
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
     >
-      {userList
-        ? userList.map((data) => (
+      {favoritesList
+        ? favoritesList.map((data) => (
             <UserCard
               nome={data.nome}
               img={data.imgUser}

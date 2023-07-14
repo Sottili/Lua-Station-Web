@@ -172,6 +172,16 @@ const RegisterUser = () => {
                     value={formValues.cpf}
                   />
                 </div>
+                <div className="field">
+                  <p className="nameInput">Sobre você</p>
+                  <textarea
+                    type="text"
+                    name="about"
+                    className="textAreaRegister"
+                    onChange={handleInputChange}
+                    value={formValues.about}
+                  />
+                </div>
               </div>
             )}
             {steps[currentStep].id === "CLASSE" && (

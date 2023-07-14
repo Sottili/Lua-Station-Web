@@ -10,11 +10,41 @@ import "./index.css";
 // Icons //
 import { AiFillHeart } from "react-icons/ai";
 
-const UserCard = ({ nome, img }) => {
-  const [isActive, setIsActive] = useState();
+//Importações do Firebase //
+import { getAuth } from "firebase/auth";
+import { ref, getDatabase, update, remove } from "firebase/database";
+import { app } from "../../services/configFirebase";
 
-  const handleClick = () => {
+const UserCard = ({ nome, img, id }) => {
+  // Conectando ao banco de dados //
+  const db = getDatabase(app);
+
+  // Iniciando a monitoração do Auth e pegando o Id do Usuario a tual //
+  const auth = getAuth();
+  const idUser = auth.currentUser.uid;
+
+  // Adicionando aos Favoritos //
+  const addFavorite = () => {
+    update(ref(db, `Users/${idUser}/Favoritos/` + id), {
+      idUser: id,
+      nome: nome,
+      img: img,
+    });
+  };
+
+  // Removendo dos Favoritos //
+  const removeFavorite = () => {
+    remove(ref(db, `Users/${idUser}/Favoritos/` + id));
+  };
+
+  // Funções da animação do coração //
+  const [isActive, setIsActive] = useState();
+  const handleAnimation = () => {
     setIsActive((current) => !current);
+  };
+  const handleClick = () => {
+    handleAnimation();
+    isActive ? removeFavorite() : addFavorite();
   };
 
   return (
@@ -34,7 +64,9 @@ const UserCard = ({ nome, img }) => {
         <div
           style={{ width: "240px", display: "flex", justifyContent: "center" }}
         >
-          <Link className="btnUserCard">Ver mais</Link>
+          <Link className="btnUserCard" to={`/perfil-freelancer/${id}`}>
+            Ver mais
+          </Link>
         </div>
       </div>
     </>

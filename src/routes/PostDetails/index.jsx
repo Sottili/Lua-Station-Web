@@ -11,7 +11,6 @@ import "./index.css";
 import astronautAuthor from "../../assets/images/AstronautNavbarIcon.png";
 
 // Icons //
-
 import { AiFillDollarCircle } from "react-icons/ai";
 
 // Firebase //

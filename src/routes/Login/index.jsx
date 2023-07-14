@@ -34,13 +34,13 @@ const LoginPage = () => {
 
   const auth = getAuth();
 
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      navigate("/servicos");
+    }
+  });
+
   function handleLogin() {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        navigate("/home");
-        console.log(user);
-      }
-    });
     return (
       signInWithEmailAndPassword(auth, email, password) && navigate("/servicos")
     );

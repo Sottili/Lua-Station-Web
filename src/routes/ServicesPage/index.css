@@ -7,3 +7,20 @@
   display: flex;
   justify-content: center;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #0d0c22;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5a189a;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}

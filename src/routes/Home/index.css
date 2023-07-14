@@ -54,6 +54,10 @@
   font-weight: 400;
 }
 
+.btnHomeTop:hover {
+  color: #fff;
+}
+
 .btnSpecial {
   margin-right: 20px;
   text-decoration: none;
@@ -430,4 +434,4 @@
   .buttonsHome {
     width: 85%;
   }
-} ;
+}

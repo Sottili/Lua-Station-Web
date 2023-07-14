@@ -28,9 +28,7 @@ import debitImage from "../../assets/images/debitImage.svg";
 
 import { Alert } from "react-bootstrap";
 
-// Component //
-
-const ServicesTest = () => {
+const CreateServices = () => {
   // Conexão firebase e getAuth //
   const db = getDatabase(app);
   const auth = getAuth();
@@ -59,7 +57,6 @@ const ServicesTest = () => {
   }
 
   // Função do Post //
-
   function handlePost() {
     // Gerando uma Key aleatória pro post
     const newPostKey = push(child(ref(db), "posts")).key;
@@ -80,6 +77,7 @@ const ServicesTest = () => {
         payment: paymentOption,
       }
     );
+    // Setando o post no Services
     set(ref(db, "Services/" + newPostKey), {
       idProject: newPostKey,
       author: auth.currentUser.uid,
@@ -107,6 +105,9 @@ const ServicesTest = () => {
   // Navegação //
 
   const navigate = useNavigate();
+  function handlePrevNavigate() {
+    navigate(-1);
+  }
 
   // Steps do formulario //
   const steps = [
@@ -142,7 +143,7 @@ const ServicesTest = () => {
           <Alert className="alertSuccessService">
             <Alert.Heading>{messageSuccess}</Alert.Heading>
           </Alert>
-          <Link className="back" to="/register">
+          <Link className="back" onClick={handlePrevNavigate}>
             <HiArrowNarrowLeft />
             Voltar
           </Link>
@@ -213,7 +214,7 @@ const ServicesTest = () => {
                         setOptionsDeadLines(selectOptionDeadline);
                       }}
                     >
-                      <option value="" selected disabled hidden>
+                      <option selected disabled hidden>
                         Selecione o prazo
                       </option>
                       <option value="https://firebasestorage.googleapis.com/v0/b/lua-stationnew.appspot.com/o/meteor.svg?alt=media&token=ff27b91e-3adf-43b3-af7d-9c3294230d5e">
@@ -372,4 +373,4 @@ const ServicesTest = () => {
   );
 };
 
-export default ServicesTest;
+export default CreateServices;

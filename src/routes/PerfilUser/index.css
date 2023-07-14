@@ -1,0 +1,116 @@
+.perfilUser {
+  background-image: url("../../assets/images/backgroundHome.png");
+  height: 100vh;
+}
+
+.servicesFinishPerfil {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-family: "Poppins";
+  background-color: #3c096c;
+  max-width: 600px;
+  flex-wrap: wrap;
+  padding-top: 0 10px;
+  padding-top: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.insideServicesFinishPerfil {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px;
+  background-color: #240046;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.starFinishServices,
+.moonFinishServices,
+.meteorFinishServices {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px;
+  padding: 13px 13px;
+  border-radius: 10px;
+  background-color: #3c096c;
+}
+
+.btnFinishServices {
+  border-radius: 14px;
+  background-color: #5a189a;
+  font-size: 12px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.descUserPerfil {
+  background-color: #3c096c;
+  color: #fff;
+  width: 300px;
+  border-radius: 10px;
+  font-family: "Poppins";
+}
+
+.insideDescUserPerfil {
+  background-color: #10002b;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.labelDescUser {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.infoDescUser {
+  margin-left: 30px;
+}
+
+.btnInsideDescUser {
+  border-radius: 14px;
+  background-color: #5a189a;
+  font-size: 12px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  margin-left: 30%;
+}
+
+.btnFinishServices:hover,
+.btnInsideDescUser:hover {
+  color: #fff;
+}
+
+.btnGoBack {
+  margin: 0 10px;
+  padding: 6px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #3c096c;
+}
+
+.btnGoBackP:hover {
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .descUserPerfil {
+    margin-top: 30px;
+  }
+  .perfilUser {
+    height: 200vh;
+  }
+  .servicesFinishPerfil {
+    margin-left: 0 !important;
+  }
+}

@@ -52,7 +52,7 @@ const RegisterCompany = () => {
       formValues.password
     ).then(() => {
       const user = auth.currentUser;
-      set(ref(db, "Users/" + user.uid), {
+      set(ref(db, "Company/" + user.uid), {
         nome: formValues.name,
         email: formValues.email,
         imgUser:
