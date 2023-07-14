@@ -26,26 +26,25 @@ import { Link } from "react-router-dom";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { AiOutlineHeart, AiOutlineBell } from "react-icons/ai";
 import { BsBoxArrowInRight } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 ///////////////////////////////////////FINAL IMPORTS //////////////////////////
 
 function NavbarPrivate() {
   // Sign Out //
   const auth = getAuth();
-
   const handleSignOut = () => {
     signOut(auth);
   };
 
-  const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
       const id = user.uid;
       setUserId(id);
-    });
-  }, [auth, setUserId]);
+    }
+  });
 
   return (
     <>
